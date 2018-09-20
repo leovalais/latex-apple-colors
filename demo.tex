@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pgffor}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{applecolors}
+
+\title{Demo of \texttt{applecolors}}
+\author{Léo Valais}
+\date\today
+
+\newcommand{\col}[1]{\textcolor{#1}{\texttt{#1}}}
+\newcommand{\colb}[1]{\colorbox{black}{\col{#1}}}
+\newcommand{\cbox}[2][\qquad]{\colorbox{#2}{#1}}
+
+\begin{document}
+\maketitle
+
+\newcommand{\showc}[1]{%
+    \begin{itemize}%
+    \foreach \c in {#1}{%
+    \item \col{\c}\qquad\colb{\c}\qquad\cbox{\c}
+    }%
+    \end{itemize}}
+
+
+\section{iOS colors}
+\showc{iOS-pink,iOS-red,iOS-orange,iOS-yellow,iOS-green,iOS-tealblue,iOS-blue,iOS-purple}
+
+\section{watchOS colors}
+\showc{watchOS-pink,watchOS-red,watchOS-orange,watchOS-yellow,watchOS-green,watchOS-turquoise,watchOS-cyan,watchOS-blue,watchOS-purple,watchOS-white}
+
+\section{macOS colors}
+Colors \texttt{macOS-acc-\textcolor{red}{*}} are designed for accessibility.
+
+\bigskip
+
+\newcommand{\putrow}[3][white]{%
+    \cellcolor{#1}\col{macOS#3-#2} &%
+    \cellcolor{#1}\col{macOS#3-aqua#2} &%
+    \cellcolor{macOS#3-#2} &%
+    \cellcolor{macOS#3-aqua#2} &%
+    \cellcolor{black}\col{macOS#3-#2} &%
+    \cellcolor{black}\col{macOS#3-aqua#2}}
+
+\hspace*{-4cm}
+\footnotesize
+\begin{tabular}{cccccc}
+    \hline
+    Normal & Aqua & Normal BG & Aqua BG & Black BG & Black BG \\
+    \hline
+    \putrow{blue}{}\\
+    \putrow{brown}{}\\
+    \putrow{gray}{}\\
+    \putrow{green}{}\\
+    \putrow{orange}{}\\
+    \putrow{pink}{}\\
+    \putrow{red}{}\\
+    \putrow{yellow}{}\\
+    \hline
+    \putrow{blue}{-vibrant}\\
+    \putrow{brown}{-vibrant}\\
+    \putrow{gray}{-vibrant}\\
+    \putrow{green}{-vibrant}\\
+    \putrow{orange}{-vibrant}\\
+    \putrow{pink}{-vibrant}\\
+    \putrow{red}{-vibrant}\\
+    \putrow{yellow}{-vibrant}\\
+    \hline
+    \putrow{blue}{-acc}\\
+    \putrow{brown}{-acc}\\
+    \putrow{gray}{-acc}\\
+    \putrow{green}{-acc}\\
+    \putrow{orange}{-acc}\\
+    \putrow{pink}{-acc}\\
+    \putrow{red}{-acc}\\
+    \putrow{yellow}{-acc}\\
+    \hline
+    \putrow{blue}{-acc-vibrant}\\
+    \putrow{brown}{-acc-vibrant}\\
+    \putrow{gray}{-acc-vibrant}\\
+    \putrow{green}{-acc-vibrant}\\
+    \putrow{orange}{-acc-vibrant}\\
+    \putrow{pink}{-acc-vibrant}\\
+    \putrow{red}{-acc-vibrant}\\
+    \putrow{yellow}{-acc-vibrant}\\
+    \hline
+\end{tabular}
+\end{document}
+
