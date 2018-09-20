@@ -1,7 +1,7 @@
-latex-apple-colors
-==================
+applecolors
+===========
 
-The package `latex-apple-colors` defines the colors found in
+The package `applecolors` defines the colors found in
 the following places of the Apple Human Interface Guidlines (for macOS, iOS and
 watchOS):
 
